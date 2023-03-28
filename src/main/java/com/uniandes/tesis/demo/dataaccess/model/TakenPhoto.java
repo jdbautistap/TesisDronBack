@@ -13,7 +13,7 @@ public class TakenPhoto {
     private Long id;
     @ManyToOne
     private Vuelo vuelo;
-
-
-
+    @Lob
+    @Column(name = "data")
+    private byte[] data;
 }

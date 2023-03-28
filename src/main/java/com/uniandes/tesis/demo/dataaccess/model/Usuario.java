@@ -1,5 +1,6 @@
 package com.uniandes.tesis.demo.dataaccess.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class Usuario {
     private String email;
     @Column(nullable = false)
     private String password;
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Vuelo>vuelos;
 }
