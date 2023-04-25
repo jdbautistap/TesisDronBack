@@ -12,6 +12,8 @@ public class TakenPhoto {
     private Long id;
     @ManyToOne
     private Vuelo vuelo;
+    private String ruta;
+    private String nombre;
     @Lob
     @Column(name = "data")
     private byte[] data;
