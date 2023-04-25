@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "2afe9a1a-f6aa-4e51-b5e6-96fef6654cf3",
+		"name": "Tesis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CrearUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Juan David Bautista\",\r\n    \"email\":\"juanda-9919@hotmail.com\",\r\n    \"password\":\"HolaMundo.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario con contraseña correcta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"juanda-9919@hotmail.com\",\r\n    \"password\":\"HolaMundo.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Vuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"Bogotá\",\r\n    \"date\":\"2023-03-27T21:16:26.888-05:00\",\r\n    \"password\":\"HolaMundo.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuario/1/vuelo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario",
+						"1",
+						"vuelo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los Vuelos de un usuario Copy 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/usuario/1/vuelo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario",
+						"1",
+						"vuelo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los Vuelos de un usuario Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/usuario/1/vuelo/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario",
+						"1",
+						"vuelo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Taken Photo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/User/Downloads/Prueba.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuario/1/vuelo/1/TakenPhoto",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario",
+						"1",
+						"vuelo",
+						"1",
+						"TakenPhoto"
+					],
+					"query": [
+						{
+							"key": "photo",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Taken Photo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let Imagedata = pm.response.json();\r",
+							"\r",
+							"console.log(Imagedata[\"data\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/usuario/1/vuelo/1/TakenPhoto/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario",
+						"1",
+						"vuelo",
+						"1",
+						"TakenPhoto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Taken Photo final",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/usuario/1/vuelo/1/TakenPhoto/finalPhoto/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuario",
+						"1",
+						"vuelo",
+						"1",
+						"TakenPhoto",
+						"finalPhoto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

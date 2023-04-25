@@ -1,8 +1,6 @@
 package com.uniandes.tesis.demo.controller;
 
 import com.uniandes.tesis.demo.dataaccess.model.TakenPhoto;
-import com.uniandes.tesis.demo.dataaccess.model.Usuario;
-import com.uniandes.tesis.demo.dataaccess.model.Vuelo;
 import com.uniandes.tesis.demo.service.TakenPhotoService;
 import com.uniandes.tesis.demo.service.UsuarioService;
 import com.uniandes.tesis.demo.service.VueloService;
@@ -15,11 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
