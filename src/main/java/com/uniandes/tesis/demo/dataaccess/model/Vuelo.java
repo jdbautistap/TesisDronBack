@@ -21,6 +21,7 @@ public class Vuelo {
     @ManyToOne
     @JoinColumn
     private Usuario usuario;
+    @JsonIgnore
     @OneToMany(mappedBy = "vuelo")
     private List<TakenPhoto> takenPhotos;
 }
