@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -15,9 +16,25 @@ public class Vuelo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String location;
+    private String MissionCode;
+    private Double locationinitLat;
+    private Double locationinitLng;
     private Date date;
-    private Boolean publico;
+    private Double altitude;
+    private String type;
+    private String heading;
+    private String finishing;
+    private int numberWaypoints;
+    private int radius;
+    private double speed;
+    @Lob
+    private String waypointsList;
+    private String duration;
+    private Double locationFinishLat;
+    private Double locationFinishLng;
+    private Date finishdate;
+    @Lob
+    private String coordinates;
     @ManyToOne
     @JoinColumn
     private Usuario usuario;

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,6 +18,10 @@ public class VueloService {
 
     public Vuelo createVuelo(Vuelo vuelo){
         return vueloRepository.save(vuelo);
+    }
+
+    public List<Vuelo> obtenerTodosLosVuelos() {
+        return vueloRepository.findAll();
     }
     public Optional<Vuelo> getVueloById(Long id){
         return vueloRepository.findById(id);

@@ -36,7 +36,7 @@ public class UsuarioController {
             return new ResponseEntity<>("Ya Existe un Usuario con ese Email",HttpStatus.CONFLICT);
         }
     }
-    @GetMapping
+    @PostMapping("/login")
     private ResponseEntity<Object> getUsuario(@RequestBody Usuario usuario){
         Usuario found=usuarioService.chekUsuarioEmail(usuario.getEmail());
         if ((found)!=null) {
