@@ -27,6 +27,9 @@ public class Vuelo {
     private int numberWaypoints;
     private int radius;
     private double speed;
+    private double width;
+    private double height;
+    private double angle;
     @Lob
     private String waypointsList;
     private String duration;

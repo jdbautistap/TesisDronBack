@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 
@@ -34,8 +35,10 @@ public class VueloController {
     private ResponseEntity<Object> saveVuelo(@PathVariable Long id, @RequestBody Vuelo vuelo) {
         if (usuarioService.checkUsuarioId(id).isPresent()){
             Usuario usuario=usuarioService.checkUsuarioId(id).get();
-            String missionCode="Altitude"+vuelo.getAltitude()+"Type"+vuelo.getType()+"Heading"+vuelo.getHeading()+
-                    "Finishing"+vuelo.getFinishing()+"NumberWaypints"+vuelo.getNumberWaypoints()+"Speed"+vuelo.getSpeed()+"Radius"+vuelo.getRadius();
+            String missionCode="";
+            if(vuelo.getMissionCode()==null){
+                missionCode = UUID.randomUUID().toString();
+            }
             vuelo.setMissionCode(missionCode);
             vuelo.setUsuario(usuario);
             Vuelo tmp =  vueloService.createVuelo(vuelo);
@@ -101,7 +104,7 @@ public class VueloController {
                     long timeInMillis1 = vuelo.getDate().getTime();
                     long timeInMillis2 = vuelo.getFinishdate().getTime();
                     long differenceInMillis = timeInMillis2 - timeInMillis1;
-                    long differenceInDays = TimeUnit.MILLISECONDS.toMinutes(differenceInMillis);
+                    long differenceInDays = TimeUnit.MILLISECONDS.toSeconds(differenceInMillis);
                     vuelo.setDuration(differenceInDays+"");
                     vueloService.createVuelo(vuelo);
                     return new ResponseEntity<>(vuelo,HttpStatus.OK);
