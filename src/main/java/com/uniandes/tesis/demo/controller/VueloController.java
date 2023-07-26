@@ -35,15 +35,9 @@ public class VueloController {
     private ResponseEntity<Object> saveVuelo(@PathVariable Long id, @RequestBody Vuelo vuelo) {
         if (usuarioService.checkUsuarioId(id).isPresent()){
             Usuario usuario=usuarioService.checkUsuarioId(id).get();
-            String missionCode="";
-            if(vuelo.getMissionCode()==null){
-                missionCode = UUID.randomUUID().toString();
-            }
-            vuelo.setMissionCode(missionCode);
             vuelo.setUsuario(usuario);
             Vuelo tmp =  vueloService.createVuelo(vuelo);
             usuario.getVuelos().add(tmp);
-            //System.out.println(vuelo);
             return new ResponseEntity<>(tmp,HttpStatus.CREATED);
         }
         else{
